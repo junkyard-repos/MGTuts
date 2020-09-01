@@ -34,8 +34,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\" />
+    <Folder Include="Content\Fonts\" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="Content\Fonts\Arial.spritefont">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\Fonts\File.spritefont">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Content\Load\SplashScreen.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -43,4 +50,5 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 </Project>

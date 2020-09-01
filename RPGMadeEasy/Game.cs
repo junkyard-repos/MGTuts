@@ -29,6 +29,9 @@ namespace RPGMadeEasy
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            ScreenManager.Instance.SpriteBatch = spriteBatch;
+            ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
+
             ScreenManager.Instance.LoadContent(Content);
         }
 
@@ -49,7 +52,7 @@ namespace RPGMadeEasy
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.Transparent);
 
             spriteBatch.Begin();
             ScreenManager.Instance.Draw(spriteBatch);

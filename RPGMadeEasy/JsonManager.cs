@@ -25,4 +25,23 @@ namespace RPGMadeEasy
             return instance;
         }
     }
+
+
+    //public class Rootobject
+    //{
+    //    public Image Image { get; set; }
+    //}
+
+    //public class Image
+    //{
+    //    public string Path { get; set; }
+    //    public Position Position { get; set; }
+    //}
+
+    //public class Position
+    //{
+    //    public int X { get; set; }
+    //    public int Y { get; set; }
+    //}
+
 }

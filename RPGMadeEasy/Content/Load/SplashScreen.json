@@ -1,1 +1,9 @@
-{"Path":"Images/SplashScreen"}
+{
+  "Image": {
+    "Path": "Images/SplashScreen",
+    "Position": {
+      "X": 200,
+      "Y": 10
+    }
+  }
+}

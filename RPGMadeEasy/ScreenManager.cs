@@ -11,12 +11,14 @@ namespace RPGMadeEasy
     public class ScreenManager
     {
         private static ScreenManager instance;
+        private GameScreen currentScreen;
+        private XmlManager<GameScreen> xmlGameScreenManager;
+        private JsonManager<GameScreen> jsonGameScreenManager;
+        
         public Vector2 Dimensions { get; private set; }
         public ContentManager Content { get; private set; }
-        XmlManager<GameScreen> xmlGameScreenManager;
-        JsonManager<GameScreen> jsonGameScreenManager;
-
-        GameScreen currentScreen;
+        public GraphicsDevice GraphicsDevice;
+        public SpriteBatch SpriteBatch;
 
         public static ScreenManager Instance
         {
@@ -36,13 +38,13 @@ namespace RPGMadeEasy
             Dimensions = new Vector2(1280, 720);
             currentScreen = new SplashScreen();
 
-            //xmlGameScreenManager = new XmlManager<GameScreen>();
-            //xmlGameScreenManager.Type = currentScreen.Type;
-            //currentScreen = xmlGameScreenManager.Load("Content/Load/SplashScreen.xml");
+            xmlGameScreenManager = new XmlManager<GameScreen>();
+            xmlGameScreenManager.Type = currentScreen.Type;
+            currentScreen = xmlGameScreenManager.Load("Content/Load/SplashScreen.xml");
 
-            jsonGameScreenManager = new JsonManager<GameScreen>();
-            jsonGameScreenManager.Type = currentScreen.Type;
-            currentScreen = jsonGameScreenManager.Load("Content/Load/SplashScreen.json");
+            //jsonGameScreenManager = new JsonManager<GameScreen>();
+            //jsonGameScreenManager.Type = currentScreen.Type;
+            //currentScreen = jsonGameScreenManager.Load("Content/Load/SplashScreen.json");
         }
 
         public void LoadContent(ContentManager content)
