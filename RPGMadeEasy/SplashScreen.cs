@@ -10,13 +10,15 @@ namespace RPGMadeEasy
 {
     public class SplashScreen : GameScreen
     {
-        Texture2D image;
-        string path;
+        private Texture2D image;
+
+        public string Path;
+
         public override void LoadContent()
         {
             base.LoadContent();
-            path = @"Images\SplashScreen";
-            image = content.Load<Texture2D>(path);
+            //Path = @"Images\SplashScreen";
+            image = content.Load<Texture2D>(Path);
         }
 
         public override void UnloadContent()
