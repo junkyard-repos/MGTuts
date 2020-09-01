@@ -42,7 +42,7 @@ namespace RPGMadeEasy
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            ScreenManager.Instance.Update();
+            ScreenManager.Instance.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -51,7 +51,9 @@ namespace RPGMadeEasy
         {
             GraphicsDevice.Clear(Color.Black);
 
+            spriteBatch.Begin();
             ScreenManager.Instance.Draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

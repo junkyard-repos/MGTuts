@@ -12,6 +12,9 @@ namespace RPGMadeEasy
     {
         private static ScreenManager instance;
         public Vector2 Dimensions { get; private set; }
+        public ContentManager Content { get; private set; }
+
+        GameScreen currentScreen;
 
         public static ScreenManager Instance
         {
@@ -28,22 +31,30 @@ namespace RPGMadeEasy
 
         public ScreenManager()
         {
-            Dimensions = new Vector2(640, 480);
+            Dimensions = new Vector2(1280, 720);
+            currentScreen = new SplashScreen();
         }
 
         public void LoadContent(ContentManager content)
         {
-
+            Content = new ContentManager(content.ServiceProvider, "Content");
+            currentScreen.LoadContent();
         }
 
-        public void UnloadContent() { }
-
-        public void Update()
+        public void UnloadContent() 
         {
-
+            currentScreen.UnloadContent();
         }
 
-        public void Draw(SpriteBatch spriteBatch) { }
+        public void Update(GameTime gameTime)
+        {
+            currentScreen.Update(gameTime);
+        }
+
+        public void Draw(SpriteBatch spriteBatch) 
+        {
+            currentScreen.Draw(spriteBatch);
+        }
 
         
     }
