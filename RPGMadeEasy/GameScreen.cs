@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,18 +13,21 @@ namespace RPGMadeEasy
     public class GameScreen
     {
         protected ContentManager content;
-
         [XmlIgnore]
         public Type Type;
+
+        public string XmlPath;
 
         public GameScreen()
         {
             Type = this.GetType();
+            XmlPath = "Load/" + Type.ToString().Replace("YoutubeRPG.", "") + ".xml";
         }
 
         public virtual void LoadContent()
         {
-            content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
+            content = new ContentManager(
+                ScreenManager.Instance.Content.ServiceProvider, "Content");
         }
 
         public virtual void UnloadContent()
@@ -30,8 +35,13 @@ namespace RPGMadeEasy
             content.Unload();
         }
 
-        public virtual void Update(GameTime gameTime) { }
+        public virtual void Update(GameTime gameTime)
+        {
+            InputManager.Instance.Update();
+        }
 
-        public virtual void Draw(SpriteBatch spriteBatch) { }
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+        }
     }
 }

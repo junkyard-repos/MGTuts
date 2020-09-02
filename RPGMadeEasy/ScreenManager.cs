@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
+using System.IO;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -11,63 +14,100 @@ namespace RPGMadeEasy
     public class ScreenManager
     {
         private static ScreenManager instance;
-        private GameScreen currentScreen;
-        private XmlManager<GameScreen> xmlGameScreenManager;
-        private JsonManager<GameScreen> jsonGameScreenManager;
-        
-        public Vector2 Dimensions { get; private set; }
-        public ContentManager Content { get; private set; }
+        [XmlIgnore]
+        public Vector2 Dimensions { private set; get; }
+        [XmlIgnore]
+        public ContentManager Content { private set; get; }
+        XmlManager<GameScreen> xmlGameScreenManager;
+
+        GameScreen currentScreen, newScreen;
+        [XmlIgnore]
         public GraphicsDevice GraphicsDevice;
+        [XmlIgnore]
         public SpriteBatch SpriteBatch;
+
+        public Image Image;
+        [XmlIgnore]
+        public bool IsTransitioning { get; private set; }
 
         public static ScreenManager Instance
         {
-            get 
+            get
             {
                 if (instance == null)
                 {
-                    instance = new ScreenManager();
+                    XmlManager<ScreenManager> xml = new XmlManager<ScreenManager>();
+                    instance = xml.Load("Content/Load/ScreenManager.xml");
                 }
 
                 return instance;
             }
         }
 
+        public void ChangeScreens(string screenName)
+        {
+            newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("RPGMadeEasy." + screenName));
+            Image.IsActive = true;
+            Image.FadeEffect.Increase = true;
+            Image.Alpha = 0.0f;
+            IsTransitioning = true;
+        }
+
+        void Transition(GameTime gameTime)
+        {
+            if (IsTransitioning)
+            {
+                Image.Update(gameTime);
+                if (Image.Alpha == 1.0f)
+                {
+                    currentScreen.UnloadContent();
+                    currentScreen = newScreen;
+                    xmlGameScreenManager.Type = currentScreen.Type;
+                    if (File.Exists(currentScreen.XmlPath))
+                        currentScreen = xmlGameScreenManager.Load(currentScreen.XmlPath);
+                    currentScreen.LoadContent();
+                }
+                else if (Image.Alpha == 0.0f)
+                {
+                    Image.IsActive = false;
+                    IsTransitioning = false;
+                }
+            }
+        }
+
         public ScreenManager()
         {
-            Dimensions = new Vector2(1280, 720);
+            Dimensions = new Vector2(640, 480);
             currentScreen = new SplashScreen();
-
             xmlGameScreenManager = new XmlManager<GameScreen>();
             xmlGameScreenManager.Type = currentScreen.Type;
             currentScreen = xmlGameScreenManager.Load("Content/Load/SplashScreen.xml");
-
-            //jsonGameScreenManager = new JsonManager<GameScreen>();
-            //jsonGameScreenManager.Type = currentScreen.Type;
-            //currentScreen = jsonGameScreenManager.Load("Content/Load/SplashScreen.json");
         }
 
-        public void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager Content)
         {
-            Content = new ContentManager(content.ServiceProvider, "Content");
+            this.Content = new ContentManager(Content.ServiceProvider, "Content");
             currentScreen.LoadContent();
+            Image.LoadContent();
         }
 
-        public void UnloadContent() 
+        public void UnloadContent()
         {
             currentScreen.UnloadContent();
+            Image.UnloadContent();
         }
 
         public void Update(GameTime gameTime)
         {
             currentScreen.Update(gameTime);
+            Transition(gameTime);
         }
 
-        public void Draw(SpriteBatch spriteBatch) 
+        public void Draw(SpriteBatch spriteBatch)
         {
             currentScreen.Draw(spriteBatch);
+            if (IsTransitioning)
+                Image.Draw(spriteBatch);
         }
-
-        
     }
 }
