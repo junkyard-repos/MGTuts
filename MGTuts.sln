@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pong", "Pong\Pong.csproj", "{E64EF1B1-D426-474C-9185-4729B2148A42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMadeEasy", "RPGMadeEasy\RPGMadeEasy.csproj", "{61761485-C3E4-41EC-A8C3-C28720003002}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGMadeEasy", "RPGMadeEasy\RPGMadeEasy.csproj", "{61761485-C3E4-41EC-A8C3-C28720003002}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopDownShooter", "TopDownShooter\TopDownShooter.csproj", "{71B69BA3-B420-4E80-B71B-F348479076D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{FD9D8909-7C02-4E42-9A1A-CB2C87308DB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{61761485-C3E4-41EC-A8C3-C28720003002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61761485-C3E4-41EC-A8C3-C28720003002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61761485-C3E4-41EC-A8C3-C28720003002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B69BA3-B420-4E80-B71B-F348479076D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B69BA3-B420-4E80-B71B-F348479076D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B69BA3-B420-4E80-B71B-F348479076D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B69BA3-B420-4E80-B71B-F348479076D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9D8909-7C02-4E42-9A1A-CB2C87308DB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9D8909-7C02-4E42-9A1A-CB2C87308DB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9D8909-7C02-4E42-9A1A-CB2C87308DB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9D8909-7C02-4E42-9A1A-CB2C87308DB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
