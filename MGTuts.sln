@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopDownShooter", "TopDownSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{FD9D8909-7C02-4E42-9A1A-CB2C87308DB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNABook_1", "XNABook_1\XNABook_1.csproj", "{95EE742B-B27D-473C-A719-A3D78BDF1E0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNABook_1", "XNABook_1\XNABook_1.csproj", "{95EE742B-B27D-473C-A719-A3D78BDF1E0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riemer", "Riemer\Riemer.csproj", "{8871CC2A-62B6-459D-8E96-AC8B6B3D532C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{95EE742B-B27D-473C-A719-A3D78BDF1E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95EE742B-B27D-473C-A719-A3D78BDF1E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95EE742B-B27D-473C-A719-A3D78BDF1E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8871CC2A-62B6-459D-8E96-AC8B6B3D532C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8871CC2A-62B6-459D-8E96-AC8B6B3D532C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8871CC2A-62B6-459D-8E96-AC8B6B3D532C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8871CC2A-62B6-459D-8E96-AC8B6B3D532C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
