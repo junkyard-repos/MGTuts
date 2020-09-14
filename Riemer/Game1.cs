@@ -33,6 +33,7 @@ namespace Riemer
         private PlayerData[] _players;
         private int _numberOfPlayers = 4;
         private float _playerScaling;
+        private int _currentPlayer = 0;
 
         private Color[] _playerColors = new Color[10]
         {
@@ -109,7 +110,7 @@ namespace Riemer
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            ProcessKeyboard();
 
             base.Update(gameTime);
         }
@@ -148,6 +149,55 @@ namespace Riemer
                     _spriteBatch.Draw(_cannonTexture, new Vector2(xPos + 20, yPos - 10), null, _players[i].Color, _players[i].Angle, cannonOrigin, _playerScaling, SpriteEffects.None, 0);
                     _spriteBatch.Draw(_carriageTexture, _players[i].Position, null, _players[i].Color, 0, new Vector2(0, _carriageTexture.Height), _playerScaling, SpriteEffects.None, 1);
                 }
+            }
+        }
+
+        private void ProcessKeyboard()
+        {
+            KeyboardState keybState = Keyboard.GetState();
+
+            if (keybState.IsKeyDown(Keys.Left))
+            {
+                _players[_currentPlayer].Angle -= 0.01f;
+            }
+            if (keybState.IsKeyDown(Keys.Right))
+            {
+                _players[_currentPlayer].Angle += 0.01f;
+            }
+
+            if (_players[_currentPlayer].Angle > MathHelper.PiOver2)
+            {
+                _players[_currentPlayer].Angle = -MathHelper.PiOver2;
+            }
+            if (_players[_currentPlayer].Angle < -MathHelper.PiOver2)
+            {
+                _players[_currentPlayer].Angle = MathHelper.PiOver2;
+            }
+
+            if (keybState.IsKeyDown(Keys.Down))
+            {
+                _players[_currentPlayer].Power -= 1;
+            }
+            if (keybState.IsKeyDown(Keys.Up))
+            {
+                _players[_currentPlayer].Power += 1;
+            }
+            if (keybState.IsKeyDown(Keys.PageDown))
+            {
+                _players[_currentPlayer].Power -= 20;
+            }
+            if (keybState.IsKeyDown(Keys.PageUp))
+            {
+                _players[_currentPlayer].Power += 20;
+            }
+
+            if (_players[_currentPlayer].Power > 1000)
+            {
+                _players[_currentPlayer].Power = 1000;
+            }
+            if (_players[_currentPlayer].Power < 0)
+            {
+                _players[_currentPlayer].Power = 0;
             }
         }
     }
