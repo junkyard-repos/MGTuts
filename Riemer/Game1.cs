@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Runtime.Serialization;
 
 namespace Riemer
@@ -26,6 +27,7 @@ namespace Riemer
         private Texture2D _foregroundTexture;
         private Texture2D _carriageTexture;
         private Texture2D _cannonTexture;
+        private Texture2D _rocketTexture;
 
         private int _screenWidth;
         private int _screenHeight;
@@ -35,6 +37,12 @@ namespace Riemer
         private float _playerScaling;
         private int _currentPlayer = 0;
         private SpriteFont _font;
+
+        private bool _rocketFlying = false;
+        private Vector2 _rocketPosition;
+        private Vector2 _rocketDirection;
+        private float _rocketAngle;
+        private float _rocketScaling = 0.1f;
 
         private Color[] _playerColors = new Color[10]
         {
@@ -100,6 +108,7 @@ namespace Riemer
             _foregroundTexture = Content.Load<Texture2D>("Riemer/foreground");
             _carriageTexture = Content.Load<Texture2D>("Riemer/carriage");
             _cannonTexture = Content.Load<Texture2D>("Riemer/cannon");
+            _rocketTexture = Content.Load<Texture2D>("Riemer/rocket");
             _font = Content.Load<SpriteFont>("Riemer/myFont");
 
             _playerScaling = 40.0f / (float)_carriageTexture.Width;
@@ -113,8 +122,21 @@ namespace Riemer
                 Exit();
 
             ProcessKeyboard();
+            UpdateRocket();
 
             base.Update(gameTime);
+        }
+
+        private void UpdateRocket()
+        {
+            if (_rocketFlying)
+            {
+                _rocketPosition += _rocketDirection;
+                Vector2 gravity = new Vector2(0, 1);
+                _rocketDirection += gravity / 10.0f;
+                _rocketPosition += _rocketDirection;
+                _rocketAngle = (float)Math.Atan2(_rocketDirection.X, -_rocketDirection.Y);
+            }
         }
 
         protected override void Draw(GameTime gameTime)
@@ -126,6 +148,7 @@ namespace Riemer
             DrawScenery();
             DrawPlayers();
             DrawText();
+            DrawRocket();
 
             _spriteBatch.End();
 
@@ -202,6 +225,19 @@ namespace Riemer
             {
                 _players[_currentPlayer].Power = 0;
             }
+
+            if (keybState.IsKeyDown(Keys.Enter) || keybState.IsKeyDown(Keys.Space))
+            {
+                _rocketFlying = true;
+                _rocketPosition = _players[_currentPlayer].Position;
+                _rocketPosition.X += 20;
+                _rocketPosition.Y -= 10;
+                _rocketAngle = _players[_currentPlayer].Angle;
+                Vector2 up = new Vector2(0, -1);
+                Matrix rotMatrix = Matrix.CreateRotationZ(_rocketAngle);
+                _rocketDirection = Vector2.Transform(up, rotMatrix);
+                _rocketDirection *= _players[_currentPlayer].Power / 50.0f;
+            }
         }
 
         private void DrawText()
@@ -211,5 +247,15 @@ namespace Riemer
             _spriteBatch.DrawString(_font, "Cannon angle: " + currentAngle.ToString(), new Vector2(20, 20), player.Color);
             _spriteBatch.DrawString(_font, "Cannon power: " + player.Power.ToString(), new Vector2(20, 45), player.Color);
         }
+
+        private void DrawRocket()
+        {
+            if (_rocketFlying)
+            {
+                _spriteBatch.Draw(_rocketTexture, _rocketPosition, null, _players[_currentPlayer].Color, _rocketAngle, new Vector2(42, 240), _rocketScaling, SpriteEffects.None, 1);
+            }
+        }
+
+
     }
 }
