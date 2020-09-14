@@ -2,18 +2,13 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Riemer
+namespace ContentTest
 {
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private GraphicsDevice _device;
-        private Texture2D _backgroundTexture;
-        private Texture2D _foregroundTexture;
-
-        private int _screenWidth;
-        private int _screenHeight;
+        private Texture2D _texture2d;
 
         public Game1()
         {
@@ -24,11 +19,7 @@ namespace Riemer
 
         protected override void Initialize()
         {
-            _graphics.PreferredBackBufferWidth = 500;
-            _graphics.PreferredBackBufferHeight = 500;
-            _graphics.IsFullScreen = false;
-            _graphics.ApplyChanges();
-            Window.Title = "Riemer's 2D MonoGame Tutorial";
+            // TODO: Add your initialization logic here
 
             base.Initialize();
         }
@@ -37,13 +28,7 @@ namespace Riemer
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _device = _graphics.GraphicsDevice;
-
-            _screenWidth = _device.PresentationParameters.BackBufferWidth;
-            _screenHeight = _device.PresentationParameters.BackBufferHeight;
-
-            _backgroundTexture = Content.Load<Texture2D>("Riemer/background");
-            _foregroundTexture = Content.Load<Texture2D>("Riemer/foreground");
+            _texture2d = Content.Load<Texture2D>("2d/FoxHeadWithShadow");
         }
 
         protected override void Update(GameTime gameTime)
@@ -61,19 +46,10 @@ namespace Riemer
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-
-            DrawScenery();
-
+            _spriteBatch.Draw(_texture2d, new Vector2(64,64), Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);
-        }
-
-        private void DrawScenery()
-        {
-            Rectangle screenRectangle = new Rectangle(0, 0, _screenWidth, _screenHeight);
-            _spriteBatch.Draw(_backgroundTexture, screenRectangle, Color.White);
-            _spriteBatch.Draw(_foregroundTexture, screenRectangle, Color.White);
         }
     }
 }

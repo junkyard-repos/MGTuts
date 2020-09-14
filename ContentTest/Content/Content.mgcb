@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Assets/2d/FoxHeadWithShadow.png
+#begin 2d/FoxHeadWithShadow.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,11 +23,11 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/2d/FoxHeadWithShadow.png
+/build:2d/FoxHeadWithShadow.png
 
-#begin Assets/Music/rain.ogg
+#begin Audio/rain.ogg
 /importer:OggImporter
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Assets/Music/rain.ogg
+/build:Audio/rain.ogg
 
