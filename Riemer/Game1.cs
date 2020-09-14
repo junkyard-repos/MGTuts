@@ -34,6 +34,7 @@ namespace Riemer
         private int _numberOfPlayers = 4;
         private float _playerScaling;
         private int _currentPlayer = 0;
+        private SpriteFont _font;
 
         private Color[] _playerColors = new Color[10]
         {
@@ -99,6 +100,7 @@ namespace Riemer
             _foregroundTexture = Content.Load<Texture2D>("Riemer/foreground");
             _carriageTexture = Content.Load<Texture2D>("Riemer/carriage");
             _cannonTexture = Content.Load<Texture2D>("Riemer/cannon");
+            _font = Content.Load<SpriteFont>("Riemer/myFont");
 
             _playerScaling = 40.0f / (float)_carriageTexture.Width;
 
@@ -123,6 +125,7 @@ namespace Riemer
 
             DrawScenery();
             DrawPlayers();
+            DrawText();
 
             _spriteBatch.End();
 
@@ -199,6 +202,14 @@ namespace Riemer
             {
                 _players[_currentPlayer].Power = 0;
             }
+        }
+
+        private void DrawText()
+        {
+            PlayerData player = _players[_currentPlayer];
+            int currentAngle = (int)MathHelper.ToDegrees(player.Angle);
+            _spriteBatch.DrawString(_font, "Cannon angle: " + currentAngle.ToString(), new Vector2(20, 20), player.Color);
+            _spriteBatch.DrawString(_font, "Cannon power: " + player.Power.ToString(), new Vector2(20, 45), player.Color);
         }
     }
 }
