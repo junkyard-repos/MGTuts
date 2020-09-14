@@ -32,6 +32,7 @@ namespace Riemer
 
         private PlayerData[] _players;
         private int _numberOfPlayers = 4;
+        private float _playerScaling;
 
         private Color[] _playerColors = new Color[10]
         {
@@ -98,6 +99,8 @@ namespace Riemer
             _carriageTexture = Content.Load<Texture2D>("Riemer/carriage");
             _cannonTexture = Content.Load<Texture2D>("Riemer/cannon");
 
+            _playerScaling = 40.0f / (float)_carriageTexture.Width;
+
             SetUpPlayers();
         }
 
@@ -138,7 +141,17 @@ namespace Riemer
             {
                 if (_players[i].IsAlive)
                 {
-                    _spriteBatch.Draw(_carriageTexture, _players[i].Position, _players[i].Color);
+                    _spriteBatch.Draw(
+                        _carriageTexture,
+                        _players[i].Position,
+                        null,
+                        _players[i].Color,
+                        0,
+                        new Vector2(0, _carriageTexture.Height),
+                        _playerScaling,
+                        SpriteEffects.None,
+                        0
+                   );
                 }
             }
         }
