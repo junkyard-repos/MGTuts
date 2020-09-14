@@ -86,8 +86,6 @@ namespace TestConsole
             Channel.setMode(FMOD.MODE.LOOP_NORMAL);
             Channel.setLoopCount(-1);
 
-            int t = 1;
-
         }
 
         //private void LoadSong(int songId, string name)
