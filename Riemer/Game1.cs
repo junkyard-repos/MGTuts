@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Riemer
@@ -28,6 +29,7 @@ namespace Riemer
         private Texture2D _carriageTexture;
         private Texture2D _cannonTexture;
         private Texture2D _rocketTexture;
+        private Texture2D _smokeTexture;
 
         private int _screenWidth;
         private int _screenHeight;
@@ -43,6 +45,9 @@ namespace Riemer
         private Vector2 _rocketDirection;
         private float _rocketAngle;
         private float _rocketScaling = 0.1f;
+
+        private List<Vector2> _smokeList = new List<Vector2>();
+        private Random _randomizer = new Random();
 
         private Color[] _playerColors = new Color[10]
         {
@@ -109,6 +114,7 @@ namespace Riemer
             _carriageTexture = Content.Load<Texture2D>("Riemer/carriage");
             _cannonTexture = Content.Load<Texture2D>("Riemer/cannon");
             _rocketTexture = Content.Load<Texture2D>("Riemer/rocket");
+            _smokeTexture = Content.Load<Texture2D>("Riemer/smoke");
             _font = Content.Load<SpriteFont>("Riemer/myFont");
 
             _playerScaling = 40.0f / (float)_carriageTexture.Width;
@@ -136,6 +142,15 @@ namespace Riemer
                 _rocketDirection += gravity / 10.0f;
                 _rocketPosition += _rocketDirection;
                 _rocketAngle = (float)Math.Atan2(_rocketDirection.X, -_rocketDirection.Y);
+
+                for (int i = 0; i < 5; i++)
+                {
+                    Vector2 smokePos = _rocketPosition;
+                    smokePos.X += _randomizer.Next(10) - 5;
+                    smokePos.Y += _randomizer.Next(10) - 5;
+                    _smokeList.Add(smokePos);
+
+                }
             }
         }
 
@@ -149,6 +164,7 @@ namespace Riemer
             DrawPlayers();
             DrawText();
             DrawRocket();
+            DrawSmoke();
 
             _spriteBatch.End();
 
@@ -256,6 +272,12 @@ namespace Riemer
             }
         }
 
-
+        private void DrawSmoke()
+        {
+            for (int i = 0; i < _smokeList.Count; i++)
+            {
+                _spriteBatch.Draw(_smokeTexture, _smokeList[i], null, Color.White, 0, new Vector2(40, 35), 0.2f, SpriteEffects.None, 1);
+            }
+        }
     }
 }
