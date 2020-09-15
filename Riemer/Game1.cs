@@ -78,6 +78,8 @@ namespace Riemer
         private Color[,] _cannonColorArray;
         private List<ParticleData> _particleList = new List<ParticleData>();
         private Color[,] _explosionColorArray;
+        private const bool _resolutionIndependent = true;
+        private Vector2 _baseScreenSize = new Vector2(640, 360);
 
         #endregion
 
@@ -90,8 +92,10 @@ namespace Riemer
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            _graphics.PreferredBackBufferWidth = 500;
-            _graphics.PreferredBackBufferHeight = 500;
+            //_graphics.PreferredBackBufferWidth = (int)_baseScreenSize.X;
+            //_graphics.PreferredBackBufferHeight = (int)_baseScreenSize.Y;
+            _graphics.PreferredBackBufferWidth = 1280;
+            _graphics.PreferredBackBufferHeight = 720;
             _graphics.IsFullScreen = false;
             _graphics.ApplyChanges();
             Window.Title = "Riemer's 2D MonoGame Tutorial";
@@ -287,8 +291,16 @@ namespace Riemer
 
             _explosionColorArray = TextureTo2DArray(_explosionTexture);
 
-            _screenWidth = _device.PresentationParameters.BackBufferWidth;
-            _screenHeight = _device.PresentationParameters.BackBufferHeight;
+            if (_resolutionIndependent)
+            {
+                _screenWidth = (int)_baseScreenSize.X;
+                _screenHeight = (int)_baseScreenSize.Y;
+            }
+            else
+            {
+                _screenWidth = _device.PresentationParameters.BackBufferWidth;
+                _screenHeight = _device.PresentationParameters.BackBufferHeight;
+            }
 
             _playerScaling = 40.0f / (float)_carriageTexture.Width;
 
@@ -590,9 +602,23 @@ namespace Riemer
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            Vector3 screenScalingFactor;
+            if (_resolutionIndependent)
+            {
+                float horScaling = (float)_device.PresentationParameters.BackBufferWidth / _baseScreenSize.X;
+                float verScaling = (float)_device.PresentationParameters.BackBufferHeight / _baseScreenSize.Y;
+                screenScalingFactor = new Vector3(horScaling, verScaling, 1);
+            }
+            else
+            {
+                screenScalingFactor = new Vector3(1, 1, 1);
+            }
+
+            Matrix globalTransformation = Matrix.CreateScale(screenScalingFactor);
+
             // TODO: Add your drawing code here
 
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, globalTransformation);
             DrawScenery();
             DrawPlayers();
             DrawText();
@@ -600,7 +626,7 @@ namespace Riemer
             DrawSmoke();
             _spriteBatch.End();
 
-            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, null, null, null, null, globalTransformation);
             DrawExplosion();
             _spriteBatch.End();
 
