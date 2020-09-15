@@ -30,6 +30,7 @@ namespace Riemer
         private Texture2D _cannonTexture;
         private Texture2D _rocketTexture;
         private Texture2D _smokeTexture;
+        private Texture2D _groundTexture;
 
         private int _screenWidth;
         private int _screenHeight;
@@ -75,8 +76,8 @@ namespace Riemer
 
         protected override void Initialize()
         {
-            _graphics.PreferredBackBufferWidth = 500;
-            _graphics.PreferredBackBufferHeight = 500;
+            _graphics.PreferredBackBufferWidth = 1200;
+            _graphics.PreferredBackBufferHeight = 720;
             _graphics.IsFullScreen = false;
             _graphics.ApplyChanges();
             Window.Title = "Riemer's 2D MonoGame Tutorial";
@@ -114,6 +115,7 @@ namespace Riemer
             _cannonTexture = Content.Load<Texture2D>("Riemer/cannon");
             _rocketTexture = Content.Load<Texture2D>("Riemer/rocket");
             _smokeTexture = Content.Load<Texture2D>("Riemer/smoke");
+            _groundTexture = Content.Load<Texture2D>("Riemer/ground");
             _font = Content.Load<SpriteFont>("Riemer/myFont");
 
             _playerScaling = 40.0f / (float)_carriageTexture.Width;
@@ -308,6 +310,7 @@ namespace Riemer
         private void CreateForeground()
         {
             Color[] foregroundColors = new Color[_screenWidth * _screenHeight];
+            Color[,] groundColors = TextureTo2DArray(_groundTexture);
 
             for (int x = 0; x < _screenWidth; x++)
             {
@@ -315,7 +318,8 @@ namespace Riemer
                 {
                     if (y > _terrainContour[x])
                     {
-                        foregroundColors[x + y * _screenWidth] = Color.Green;
+                        //foregroundColors[x + y * _screenWidth] = Color.Green;
+                        foregroundColors[x + y * _screenWidth] = groundColors[x % _groundTexture.Width, y % _groundTexture.Height];
                     }
                     else
                     {
@@ -340,6 +344,23 @@ namespace Riemer
                     }
                 }
             }
+        }
+
+        private Color[,] TextureTo2DArray(Texture2D texture)
+        {
+            Color[] colors1D = new Color[texture.Width * texture.Height];
+            texture.GetData(colors1D);
+
+            Color[,] colors2D = new Color[texture.Width, texture.Height];
+            for (int x = 0; x < texture.Width; x++)
+            {
+                for (int y = 0; y < texture.Height; y++)
+                {
+                    colors2D[x, y] = colors1D[x + y * texture.Width];
+                }
+            }
+
+            return colors2D;
         }
     }
 }
