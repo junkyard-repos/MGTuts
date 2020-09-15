@@ -77,6 +77,7 @@ namespace Riemer
         private Color[,] _carriageColorArray;
         private Color[,] _cannonColorArray;
         private List<ParticleData> _particleList = new List<ParticleData>();
+        private Color[,] _explosionColorArray;
 
         #endregion
 
@@ -204,6 +205,51 @@ namespace Riemer
             {
                 AddExplosionParticle(explosionPos, size, maxAge, gameTime);
             }
+
+            float rotation = (float)_randomizer.Next(10);
+
+            Matrix mat = Matrix.CreateTranslation(-_explosionTexture.Width / 2, -_explosionTexture.Height / 2, 0) *
+                                        Matrix.CreateRotationZ(rotation) *
+                                        Matrix.CreateScale(size / (float)_explosionTexture.Width * 2.0f) *
+                                        Matrix.CreateTranslation(explosionPos.X, explosionPos.Y, 0);
+
+            AddCrater(_explosionColorArray, mat);
+
+            for (int i = 0; i < _players.Length; i++)
+            {
+                _players[i].Position.Y = _terrainContour[(int)_players[i].Position.X];
+            }
+            FlattenTerrainBelowPlayers();
+            CreateForeground();
+        }
+
+        private void AddCrater(Color[,] tex, Matrix mat)
+        {
+            int width = tex.GetLength(0);
+            int height = tex.GetLength(1);
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    if (tex[x, y].R > 10)
+                    {
+                        Vector2 imagePos = new Vector2(x, y);
+                        Vector2 screenPos = Vector2.Transform(imagePos, mat);
+
+                        int screenX = (int)screenPos.X;
+                        int screenY = (int)screenPos.Y;
+
+                        if ((screenX) > 0 && (screenX < _screenWidth))
+                        {
+                            if (_terrainContour[screenX] < screenY)
+                            {
+                                _terrainContour[screenX] = screenY;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private Color[,] TextureTo2DArray(Texture2D texture)
@@ -238,6 +284,8 @@ namespace Riemer
             _groundTexture = Content.Load<Texture2D>("Riemer/ground");
             _explosionTexture = Content.Load<Texture2D>("Riemer/explosion");
             _font = Content.Load<SpriteFont>("Riemer/myFont");
+
+            _explosionColorArray = TextureTo2DArray(_explosionTexture);
 
             _screenWidth = _device.PresentationParameters.BackBufferWidth;
             _screenHeight = _device.PresentationParameters.BackBufferHeight;
