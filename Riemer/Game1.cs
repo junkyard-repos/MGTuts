@@ -39,6 +39,7 @@ namespace Riemer
         private float _playerScaling;
         private int _currentPlayer = 0;
         private SpriteFont _font;
+        private int[] _terrainContour;
 
         private bool _rocketFlying = false;
         private Vector2 _rocketPosition;
@@ -110,7 +111,7 @@ namespace Riemer
             _screenHeight = _device.PresentationParameters.BackBufferHeight;
 
             _backgroundTexture = Content.Load<Texture2D>("Riemer/background");
-            _foregroundTexture = Content.Load<Texture2D>("Riemer/foreground");
+            //_foregroundTexture = Content.Load<Texture2D>("Riemer/foreground");
             _carriageTexture = Content.Load<Texture2D>("Riemer/carriage");
             _cannonTexture = Content.Load<Texture2D>("Riemer/cannon");
             _rocketTexture = Content.Load<Texture2D>("Riemer/rocket");
@@ -118,6 +119,9 @@ namespace Riemer
             _font = Content.Load<SpriteFont>("Riemer/myFont");
 
             _playerScaling = 40.0f / (float)_carriageTexture.Width;
+
+            GenerateTerrainContour();
+            CreateForeground();
 
             SetUpPlayers();
         }
@@ -278,6 +282,39 @@ namespace Riemer
             {
                 _spriteBatch.Draw(_smokeTexture, _smokeList[i], null, Color.White, 0, new Vector2(40, 35), 0.2f, SpriteEffects.None, 1);
             }
+        }
+
+        private void GenerateTerrainContour()
+        {
+            _terrainContour = new int[_screenWidth];
+
+            for (int x = 0; x < _screenWidth; x++)
+            {
+                _terrainContour[x] = _screenHeight / 2;
+            }
+        }
+
+        private void CreateForeground()
+        {
+            Color[] foregroundColors = new Color[_screenWidth * _screenHeight];
+
+            for (int x = 0; x < _screenWidth; x++)
+            {
+                for (int y = 0; y < _screenHeight; y++)
+                {
+                    if (y > _terrainContour[x])
+                    {
+                        foregroundColors[x + y * _screenWidth] = Color.Green;
+                    }
+                    else
+                    {
+                        foregroundColors[x + y * _screenWidth] = Color.Transparent;
+                    }
+                }
+            }
+
+            _foregroundTexture = new Texture2D(_device, _screenWidth, _screenHeight, false, SurfaceFormat.Color);
+            _foregroundTexture.SetData(foregroundColors);
         }
     }
 }
