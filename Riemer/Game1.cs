@@ -192,8 +192,8 @@ namespace Riemer
             float angle = MathHelper.ToRadians(_randomizer.Next(360));
             displacement = Vector2.Transform(displacement, Matrix.CreateRotationZ(angle));
 
-            particle.Direction = displacement;
-            particle.Acceleration = 3.0f * particle.Direction;
+            particle.Direction = displacement * 2.0f;
+            particle.Acceleration = -particle.Direction;
 
             _particleList.Add(particle);
         }
@@ -331,6 +331,36 @@ namespace Riemer
                     smokePos.X += _randomizer.Next(10) - 5;
                     smokePos.Y += _randomizer.Next(10) - 5;
                     _smokeList.Add(smokePos);
+                }
+            }
+        }
+
+        private void UpdateParticles(GameTime gameTime)
+        {
+            float now = (float)gameTime.TotalGameTime.TotalMilliseconds;
+            for (int i = _particleList.Count - 1; i >= 0; i--)
+            {
+                ParticleData particle = _particleList[i];
+                float timeAlive = now - particle.BirthTime;
+
+                if (timeAlive > particle.MaxAge)
+                {
+                    _particleList.RemoveAt(i);
+                }
+                else
+                {
+                    //update current particle
+                    float relAge = timeAlive / particle.MaxAge;
+                    particle.Position = 0.5f * particle.Acceleration * relAge * relAge + particle.Direction * relAge + particle.OriginalPosition;
+
+                    float invAge = 1.0f - relAge;
+                    particle.ModColor = new Color(new Vector4(invAge, invAge, invAge, invAge));
+
+                    Vector2 positionFromCenter = particle.Position - particle.OriginalPosition;
+                    float distance = positionFromCenter.Length();
+                    particle.Scaling = (50.0f + distance) / 200.0f;
+
+                    _particleList[i] = particle;
                 }
             }
         }
@@ -489,12 +519,20 @@ namespace Riemer
 
             // TODO: Add your update logic here
 
-            ProcessKeyboard();
+            if (!_rocketFlying && _particleList.Count == 0)
+            {
+                ProcessKeyboard();
+            }
 
             if (_rocketFlying)
             {
                 UpdateRocket();
                 CheckCollisions(gameTime);
+            }
+
+            if (_particleList.Count > 0)
+            {
+                UpdateParticles(gameTime);
             }
 
             base.Update(gameTime);
@@ -512,6 +550,9 @@ namespace Riemer
             DrawText();
             DrawRocket();
             DrawSmoke();
+            _spriteBatch.End();
+
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
             DrawExplosion();
             _spriteBatch.End();
 
