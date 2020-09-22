@@ -103,13 +103,21 @@ namespace Riemer
             base.Initialize();
         }
 
+        private Color GenerateRandomColor()
+        {
+            Random random = new Random();
+
+            return new Color(random.Next(0, 255), random.Next(0, 255), random.Next(0, 255));
+        }
+
         private void SetUpPlayers()
         {
             _players = new PlayerData[_numberOfPlayers];
             for (int i = 0; i < _numberOfPlayers; i++)
             {
                 _players[i].IsAlive = true;
-                _players[i].Color = _playerColors[i];
+                //_players[i].Color = _playerColors[i];
+                _players[i].Color = GenerateRandomColor();
                 _players[i].Angle = MathHelper.ToRadians(90);
                 _players[i].Power = 100;
                 _players[i].Position = new Vector2();
