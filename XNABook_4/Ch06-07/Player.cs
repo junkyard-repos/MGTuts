@@ -157,12 +157,10 @@ namespace XNABook_4
       Vector2 fireAngle = Vector2.Zero;
 
       moveAngle += handleKeyboardMovement(Keyboard.GetState());
-      moveAngle +=
-          handleGamePadMovement(GamePad.GetState(PlayerIndex.One));
+      moveAngle += handleGamePadMovement(GamePad.GetState(PlayerIndex.One));
 
       fireAngle += handleKeyboardShots(Keyboard.GetState());
-      fireAngle +=
-          handleGamePadShots(GamePad.GetState(PlayerIndex.One));
+      fireAngle += handleGamePadShots(GamePad.GetState(PlayerIndex.One));
 
       if (moveAngle != Vector2.Zero)
       {
