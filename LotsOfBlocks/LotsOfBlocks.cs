@@ -31,6 +31,8 @@ namespace LotsOfBlocks
       _graphics.PreferredBackBufferWidth = 1280;
       _graphics.PreferredBackBufferHeight = 720;
       _graphics.ApplyChanges();
+      
+      
 
       base.Initialize();
     }
@@ -93,7 +95,7 @@ namespace LotsOfBlocks
       DrawTiles();
       _spriteBatch.End();
 
-      _spriteBatch.Begin();
+      _spriteBatch.Begin(transformMatrix: Matrix.CreateScale(2, 2, 1));
       DrawString(_font, _gameTime, new Vector2(300, 100), new Color(255, 255, 255));
       DrawString(_font, gameTime.TotalGameTime.ToString(), new Vector2(300, 120), new Color(255, 255, 255));
       DrawString(_tilesDrawn.ToString(), new Vector2(300, 140));
@@ -137,7 +139,7 @@ namespace LotsOfBlocks
 
     private void DrawString(string text, Vector2 position)
     {
-      DrawString(_font, text, position, Color.White);
+      _spriteBatch.DrawString(_font, text, position, Color.White);
 
     }
   }

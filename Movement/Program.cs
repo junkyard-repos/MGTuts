@@ -1,16 +1,14 @@
 ﻿using System;
 
-namespace LotsOfBlocks
+namespace Movement
 {
   public static class Program
   {
     [STAThread]
     static void Main()
     {
-      using (var game = new LotsOfBlocks())
-      {
+      using (var game = new Movement())
         game.Run();
-      }
     }
   }
 }
