@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Movement
 {
@@ -19,11 +21,21 @@ namespace Movement
     float floor;
     Vector2 playerPosition;
     float playerSpeed = 100.0f;
+    float zoom = 1;
+    int worldUnitSize = 8;
+    int screenWidthInWorldUnits;
+    int screenHeightInWorldUnits;
+
+    Map Map;
 
     Texture2D playerIdleTexture;
     Texture2D playerRunTexture;
     Texture2D playerJumpTexture;
     Texture2D playerFallTexture;
+    Texture2D spriteSheetTexture;
+
+
+
     private bool playerIsJumping = false;
     private bool playerIsGrounded = false;
 
@@ -36,10 +48,24 @@ namespace Movement
 
     protected override void Initialize()
     {
+      _graphics.PreferredBackBufferWidth = 1280;
+      _graphics.PreferredBackBufferHeight = 720;
+      _graphics.ApplyChanges();
+
+      screenWidthInWorldUnits = _graphics.PreferredBackBufferWidth / worldUnitSize; // 160
+      screenHeightInWorldUnits = _graphics.PreferredBackBufferHeight / worldUnitSize; // 90
+
+      
+
       animationSpeed = 1;
       playerState = "idle";
       playerPosition = new Vector2(50, 50);
-      floor = _graphics.PreferredBackBufferHeight / 3 - 32;
+      floor = _graphics.PreferredBackBufferHeight / zoom - 32;
+
+      using (StreamReader sr = new StreamReader(@"C:\Users\davda\Desktop\720_test.json"))
+      {
+        Map = JsonConvert.DeserializeObject<Map>(sr.ReadToEnd());
+      }
 
 
       base.Initialize();
@@ -53,11 +79,14 @@ namespace Movement
       playerRunTexture = Content.Load<Texture2D>("rogue noir/animations/png/player_run");
       playerJumpTexture = Content.Load<Texture2D>("rogue noir/animations/png/player_jump");
       playerFallTexture = Content.Load<Texture2D>("rogue noir/animations/png/player_jump_midair");
+      spriteSheetTexture = Content.Load<Texture2D>("Minivania/s4m_ur4i_minivania_tilemap");
 
       height = playerIdleTexture.Height;
       width = playerIdleTexture.Width;
       segments = playerIdleTexture.Width / playerIdleTexture.Height;
+
     }
+
 
     protected override void Update(GameTime gameTime)
     {
@@ -82,13 +111,13 @@ namespace Movement
       {
         playerState = "run-right";
         playerDirection = SpriteEffects.None;
-        playerPosition.X = MathHelper.Clamp(playerPosition.X += playerSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, -8, _graphics.PreferredBackBufferWidth / 3 - 24);
+        playerPosition.X = MathHelper.Clamp(playerPosition.X += playerSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, -8, _graphics.PreferredBackBufferWidth / zoom - 24);
       }
       else if (Keyboard.GetState().IsKeyDown(Keys.A))
       {
         playerState = "run-left";
         playerDirection = SpriteEffects.FlipHorizontally;
-        playerPosition.X = MathHelper.Clamp(playerPosition.X -= playerSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, -8, _graphics.PreferredBackBufferWidth / 3 - 24);
+        playerPosition.X = MathHelper.Clamp(playerPosition.X -= playerSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, -8, _graphics.PreferredBackBufferWidth / zoom - 24);
       }
       else
       {
@@ -127,15 +156,44 @@ namespace Movement
     {
       GraphicsDevice.Clear(Color.CornflowerBlue);
 
-      _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(3, 3, 1));
+      _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(zoom, zoom, 1));
 
 
-
+      DrawMap();
       DrawPlayer();
 
       _spriteBatch.End();
 
       base.Draw(gameTime);
+    }
+
+    private void DrawMap()
+    {
+      // todo texture to array
+      int start = 0;
+      for (int i = 0; i < _graphics.PreferredBackBufferHeight; i += 8)
+      {
+        for (int j = 0; j < _graphics.PreferredBackBufferWidth; j += 8)
+        {
+          int valueInArray = Map.Data[start];
+          if (start < Map.Data.Length - 1)
+          {
+            start++;
+
+          }
+          Rectangle rect;
+          if (valueInArray > 0)
+          {
+            rect = new Rectangle(64, 8, 8, 8);
+          }
+          else
+          {
+            rect = new Rectangle(0, 0, 8, 8);
+          }
+          _spriteBatch.Draw(spriteSheetTexture, new Vector2(j, i), rect, Color.White);
+        }
+      }
+
     }
 
     private void DrawPlayer()

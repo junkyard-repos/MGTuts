@@ -7,7 +7,7 @@ namespace Movement
     [STAThread]
     static void Main()
     {
-      using (var game = new Movement())
+      using (var game = new CameraTest())
         game.Run();
     }
   }
