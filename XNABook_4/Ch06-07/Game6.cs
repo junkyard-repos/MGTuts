@@ -90,7 +90,7 @@ namespace XNABook_4
     protected override void Draw(GameTime gameTime)
     {
       GraphicsDevice.Clear(Color.CornflowerBlue);
-      spriteBatch.Begin();
+      spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(1, 1, 1));
       TileMap.Draw(spriteBatch);
       Player.Draw(spriteBatch);
       spriteBatch.End();

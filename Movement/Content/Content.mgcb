@@ -31,6 +31,33 @@
 /processorParam:Quality=Best
 /build:Audio/rain.ogg
 
+#begin Fonts/Arial.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Arial.spritefont
+
+#begin Fonts/Fairfax.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Fairfax.spritefont
+
+#begin Fonts/Fairfax.ttf
+/copy:Fonts/Fairfax.ttf
+
+#begin Fonts/Magdalena.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Magdalena.spritefont
+
+#begin Fonts/Magdalena.ttf
+/copy:Fonts/Magdalena.ttf
+
 #begin Minivania/s4m_ur4i_minivania_lava.png
 /importer:TextureImporter
 /processor:TextureProcessor

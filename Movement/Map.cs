@@ -5,5 +5,6 @@
     public int[] Data { get; set; }
     public int Height { get; set; }
     public int Width { get; set; }
+    public Tile[] TileData { get; set; }
   }
 }
