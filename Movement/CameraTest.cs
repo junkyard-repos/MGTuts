@@ -5,39 +5,7 @@ using System;
 
 namespace Movement
 {
-  public class Camera2D
-  {
-    private Vector2 _position;
-    public Vector2 Position
-    {
-      get { return _position; }
 
-      set
-      {
-        _position = new Vector2(MathHelper.Clamp(value.X, 0, 1280), MathHelper.Clamp(value.Y, 0, 720));
-      }
-    }
-
-    public Vector2 Origin { get; set; }
-    public int Width { get; set; }
-    public int Height { get; set; }
-    public Vector2 Center { get; }
-    public Vector2 WorldSize { get; set; }
-    public float Zoom { get; set; }
-
-    public Camera2D(int width, int height)
-    {
-      Width = width;
-      Height = height;
-      Center = new Vector2(width / 2, height / 2);
-    }
-
-    public void MoveCamera(Vector2 newPos)
-    {
-      Position = newPos;
-    }
-
-  }
 
   public class CameraTest : Game
   {
@@ -52,13 +20,8 @@ namespace Movement
     Texture2D spriteSheetTexture;
     private SpriteFont _font;
 
-    Map _map;
-    Camera2D _camera;
+    Map _map = new Map();
 
-    private int screenWidthInWorldUnits;
-    private int screenHeightInWorldUnits;
-    private int worldUnitSize = 8; // in pixels squared
-    private int scaledUnitSize;
     #endregion
 
     public CameraTest()
@@ -103,20 +66,27 @@ namespace Movement
 
     protected override void Initialize()
     {
-      _graphics.PreferredBackBufferWidth = 1280;
-      _graphics.PreferredBackBufferHeight = 720;
+      _graphics.PreferredBackBufferWidth = 800;
+      _graphics.PreferredBackBufferHeight = 600;
       _graphics.ApplyChanges();
 
-      screenWidthInWorldUnits = _graphics.PreferredBackBufferWidth / worldUnitSize; // 160
-      screenHeightInWorldUnits = _graphics.PreferredBackBufferHeight / worldUnitSize; // 90
+      WorldDetails.WorldUnitSize = 8;
 
-      BuildWorldMap();
+      WorldDetails.ScreenWidthInWorldUnits = _graphics.PreferredBackBufferWidth / WorldDetails.WorldUnitSize; // 160
+      WorldDetails.ScreenHeightInWorldUnits = _graphics.PreferredBackBufferHeight / WorldDetails.WorldUnitSize; // 90
 
-      _camera = new Camera2D(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
-      //_camera = new Camera2D(200, 200);
-      _camera.Position = new Vector2(0, 0);
-      _camera.Zoom = 1;
-      scaledUnitSize = worldUnitSize * (int)_camera.Zoom;
+      _map.BuildRandomMap(505, 505);
+
+      Camera2D.Width = _graphics.PreferredBackBufferWidth;
+      Camera2D.Height = _graphics.PreferredBackBufferHeight;
+      Camera2D.Position = new Vector2(0, 0);
+      Camera2D.Zoom = 4;
+
+
+      WorldDetails.ScaledUnitSize = WorldDetails.WorldUnitSize * (int)Camera2D.Zoom;
+
+      WorldDetails.WordWidthInPixles = _map.Width + WorldDetails.ScreenWidthInWorldUnits;
+      WorldDetails.WordHeightInPixles = _map.Height * (int)WorldDetails.ScreenHeightInWorldUnits;
 
       base.Initialize();
     }
@@ -135,28 +105,28 @@ namespace Movement
 
     protected override void Update(GameTime gameTime)
     {
-      //Console.WriteLine(_camera.Position.ToString());
+      //Console.WriteLine(Camera2D.Position.ToString());
       if (Keyboard.GetState().IsKeyDown(Keys.W))
       {
-        _camera.MoveCamera(_camera.Position + new Vector2(0, -0.3f));
+        Camera2D.MoveCamera(Camera2D.Position + new Vector2(0, -0.3f));
       }
       if (Keyboard.GetState().IsKeyDown(Keys.A))
       {
-        //Console.WriteLine(_camera.Position.X);
-        _camera.MoveCamera(_camera.Position + new Vector2(-0.3f, 0));
+        //Console.WriteLine(Camera2D.Position.X);
+        Camera2D.MoveCamera(Camera2D.Position + new Vector2(-0.3f, 0));
       }
       if (Keyboard.GetState().IsKeyDown(Keys.S))
       {
-        _camera.MoveCamera(_camera.Position + new Vector2(0, 0.3f));
+        Camera2D.MoveCamera(Camera2D.Position + new Vector2(0, 0.3f));
       }
       if (Keyboard.GetState().IsKeyDown(Keys.D))
       {
-        //Console.WriteLine(_camera.Position.X);
-        //Console.WriteLine(_camera.Width / scaledUnitSize);
-        //Console.WriteLine(screenWidthInWorldUnits - (_camera.Width / scaledUnitSize));
+        //Console.WriteLine(Camera2D.Position.X);
+        //Console.WriteLine(Camera2D.Width / scaledUnitSize);
+        //Console.WriteLine(screenWidthInWorldUnits - (Camera2D.Width / scaledUnitSize));
 
-        //if (_camera.Position.X < screenWidthInWorldUnits - (_camera.Width / scaledUnitSize * 2))
-        _camera.MoveCamera(_camera.Position + new Vector2(0.3f, 0));
+        //if (Camera2D.Position.X < screenWidthInWorldUnits - (Camera2D.Width / scaledUnitSize * 2))
+        Camera2D.MoveCamera(Camera2D.Position + new Vector2(0.3f, 0));
       }
 
 
@@ -167,13 +137,14 @@ namespace Movement
     {
       GraphicsDevice.Clear(Color.Black);
 
-      //_spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(_camera.Zoom, _camera.Zoom, 1));
-      _spriteBatch.Begin();
+      _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(Camera2D.Zoom, Camera2D.Zoom, 1));
+      //_spriteBatch.Begin();
 
 
-      DrawMapSimple();
+      _map.Draw(_spriteBatch, spriteSheetTexture);
 
-      DrawString(screenWidthInWorldUnits.ToString(), new Vector2(20, 20));
+      DrawString(WorldDetails.ScreenWidthInWorldUnits.ToString(), new Vector2(20, 20));
+      DrawString(Camera2D.Position.ToString(), new Vector2(20, 30));
 
 
       _spriteBatch.End();
@@ -181,73 +152,6 @@ namespace Movement
       base.Draw(gameTime);
     }
 
-    private void DrawMap()
-    {
-      // Get camera position
-      Vector2 cameraPos = _camera.Position;
-      //Vector2 cameraOriginBlock = new Vector2((int)Math.Floor(cameraPos.X / scaledUnitSize), (int)Math.Floor(cameraPos.Y / scaledUnitSize));
-      Vector2 cameraOriginBlock = new Vector2(cameraPos.X, cameraPos.Y);
-      int cameraBlockWidth = (int)Math.Ceiling(_camera.Width / scaledUnitSize * 1.0f);
-      int cameraBlockHeight = (int)Math.Ceiling(_camera.Height / scaledUnitSize * 1.0f);
-      // Dertimine what blocks on map to draw 160 x 90
-      // each row 0 - 159
-      // Draw tiles in the camera
-
-      for (int i = (int)cameraOriginBlock.X; i <= cameraBlockWidth + (int)cameraOriginBlock.X; i++)
-      {
-        for (int j = (int)cameraOriginBlock.Y; j <= cameraBlockHeight + (int)cameraOriginBlock.Y; j++)
-        {
-          // Use mod to get the remainder (row)
-          //if (screenWidthInWorldUnits * i + j < _map.Data.Length)
-          //{
-          int tile = _map.Data[screenWidthInWorldUnits * i + j];
-          int x = (tile % 32) * 8;
-          int y = (tile / 32) * 8;
-
-          ;
-
-          _spriteBatch.Draw(spriteSheetTexture, new Vector2(i - cameraOriginBlock.X, j - cameraOriginBlock.Y) * 8, new Rectangle(x, y, 8, 8), Color.White);
-          //}
-
-        }
-      }
-
-            ;
-
-    }
-
-    private void DrawMapSimple()
-    {
-      // Get camera position
-      Vector2 cameraPos = _camera.Position;
-      //Vector2 cameraOriginBlock = new Vector2((int)Math.Floor(cameraPos.X / scaledUnitSize), (int)Math.Floor(cameraPos.Y / scaledUnitSize));
-      Vector2 cameraOriginBlock = new Vector2(cameraPos.X, cameraPos.Y);
-      int cameraBlockWidth = (int)Math.Ceiling(_camera.Width / scaledUnitSize * 1.0f);
-      int cameraBlockHeight = (int)Math.Ceiling(_camera.Height / scaledUnitSize * 1.0f);
-      // Dertimine what blocks on map to draw 160 x 90
-      // each row 0 - 159
-      // Draw tiles in the camera
-
-      for (int i = (int)cameraOriginBlock.X; i <= cameraBlockWidth + (int)cameraOriginBlock.X; i++)
-      {
-        for (int j = (int)cameraOriginBlock.Y; j <= cameraBlockHeight + (int)cameraOriginBlock.Y; j++)
-        {
-          // Use mod to get the remainder (row)
-          if (screenWidthInWorldUnits * i + j < _map.Data.Length )
-          {
-            int tile = _map.Data[screenWidthInWorldUnits * i + j];
-            int x = (tile % 32) * 8;
-            int y = (tile / 32) * 8;
-
-            _spriteBatch.Draw(spriteSheetTexture, new Vector2(i - cameraOriginBlock.X, j - cameraOriginBlock.Y) * 8, new Rectangle(x, y, 8, 8), Color.White);
-          }
-
-        }
-      }
-
-
-
-    }
 
     private void DrawString(SpriteFont font, string text, Vector2 position, Color color)
     {
