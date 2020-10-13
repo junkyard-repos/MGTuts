@@ -85,6 +85,71 @@ namespace Movement
     }
   }
 
+  public static class BasicPlayer
+  {
+
+
+    public static Rectangle spriteLocation = new Rectangle(0, 209, 8, 8);
+
+    private static Vector2 position = new Vector2(20, 20);
+
+    public static int WU = 8;
+
+    public static Vector2 playerOriginBlock;
+
+    public static Vector2 Position
+    {
+      get { return position; }
+      //set { position = value; }
+    }
+
+
+
+    public static void UpdatePosition(Vector2 pos, BasicMap map)
+    {
+
+      Vector2 nextOriginBlock = new Vector2(pos.X / WU * BasicCamera.Zoom, pos.Y / WU * BasicCamera.Zoom);
+
+      if (
+        /*
+         * 0 0 0
+         * 0 1 0
+         * 0 0 0
+        */
+        map.TileData[(int)nextOriginBlock.X, (int)nextOriginBlock.Y].SpriteTile == 0 &&
+        /*
+         * 0 0 0
+         * 0 0 1
+         * 0 0 0
+        */
+        map.TileData[(int)nextOriginBlock.X + 1, (int)nextOriginBlock.Y].SpriteTile == 0 &&
+
+        map.TileData[(int)nextOriginBlock.X - 1, (int)nextOriginBlock.Y].SpriteTile == 0 &&
+
+        map.TileData[(int)nextOriginBlock.X, (int)nextOriginBlock.Y + 1].SpriteTile == 0 &&
+
+        map.TileData[(int)nextOriginBlock.X, (int)nextOriginBlock.Y - 1].SpriteTile == 0 &&
+
+        map.TileData[(int)nextOriginBlock.X + 1, (int)nextOriginBlock.Y + 1].SpriteTile == 0 &&
+
+        map.TileData[(int)nextOriginBlock.X - 1, (int)nextOriginBlock.Y - 1].SpriteTile == 0 &&
+
+        map.TileData[(int)nextOriginBlock.X + 1, (int)nextOriginBlock.Y - 1].SpriteTile == 0 &&
+
+        map.TileData[(int)nextOriginBlock.X - 1, (int)nextOriginBlock.Y + 1].SpriteTile == 0
+        )
+      {
+        position = pos;
+      }
+
+    }
+
+    public static void Draw(SpriteBatch sb, Texture2D texture)
+    {
+      sb.Draw(texture, Position, spriteLocation, Color.White);
+    }
+  }
+
   public class SimpleCamera : Game
   {
     GraphicsDeviceManager _graphics;
@@ -108,7 +173,7 @@ namespace Movement
       _graphics.PreferredBackBufferHeight = 720;
       _graphics.ApplyChanges();
 
-      BasicCamera.Zoom = 2;
+      BasicCamera.Zoom = 4;
       BasicCamera.viewPortSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
 
@@ -135,19 +200,23 @@ namespace Movement
 
       if (Keyboard.GetState().IsKeyDown(Keys.W))
       {
-        BasicCamera.UpdatePosition(BasicCamera.Position + new Vector2(0, -50f * deltaTime));
+        //BasicCamera.UpdatePosition(BasicCamera.Position + new Vector2(0, -50f * deltaTime));
+        BasicPlayer.UpdatePosition(BasicPlayer.Position + new Vector2(0, -50f * deltaTime), _map);
       }
       if (Keyboard.GetState().IsKeyDown(Keys.A))
       {
-        BasicCamera.UpdatePosition(BasicCamera.Position + new Vector2(-50f * deltaTime, 0));
+        //BasicCamera.UpdatePosition(BasicCamera.Position + new Vector2(-50f * deltaTime, 0));
+        BasicPlayer.UpdatePosition(BasicPlayer.Position + new Vector2(-50f * deltaTime, 0), _map);
       }
       if (Keyboard.GetState().IsKeyDown(Keys.S))
       {
-        BasicCamera.UpdatePosition(BasicCamera.Position + new Vector2(0, 50f * deltaTime));
+        //BasicCamera.UpdatePosition(BasicCamera.Position + new Vector2(0, 50f * deltaTime));
+        BasicPlayer.UpdatePosition(BasicPlayer.Position + new Vector2(0, 50f * deltaTime), _map);
       }
       if (Keyboard.GetState().IsKeyDown(Keys.D))
       {
-        BasicCamera.UpdatePosition(BasicCamera.Position + new Vector2(50f * deltaTime, 0));
+        //BasicCamera.UpdatePosition(BasicCamera.Position + new Vector2(50f * deltaTime, 0));
+        BasicPlayer.UpdatePosition(BasicPlayer.Position + new Vector2(50f * deltaTime, 0), _map);
       }
 
 
@@ -162,21 +231,27 @@ namespace Movement
 
       //_spriteBatch.Draw(_spriteSheet, Vector2.Zero, new Rectangle((int)BasicCamera.Position.X, (int)BasicCamera.Position.Y, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight), Color.White);
       _map.Draw(_spriteBatch, _spriteSheet, _worldUnit);
+      BasicPlayer.Draw(_spriteBatch, _spriteSheet);
 
-      DrawString(_spriteSheet.Width.ToString(), new Vector2(20, 10));
-      DrawString((_spriteSheet.Width * BasicCamera.Zoom).ToString(), new Vector2(20, 20));
-      DrawString((BasicCamera.Position).ToString(), new Vector2(20, 30));
-      DrawString((_map.cameraOriginBlock).ToString(), new Vector2(20, 40));
-      DrawString((_map.cameraBlockWidth).ToString(), new Vector2(20, 50));
-      DrawString((_map.cameraBlockHeight).ToString(), new Vector2(20, 60));
-      DrawString((_map.TilesDrawn).ToString(), new Vector2(20, 70));
-      DrawString((_map.TileData.GetUpperBound(0)).ToString(), new Vector2(20, 80));
-      DrawString((_map.TileData.GetUpperBound(1)).ToString(), new Vector2(20, 90));
-      DrawString(BasicCamera.Clamp.ToString(), new Vector2(20, 100));
+      //DrawString(_spriteSheet.Width.ToString(), new Vector2(20, 10));
+      //DrawString((_spriteSheet.Width * BasicCamera.Zoom).ToString(), new Vector2(20, 20));
+      //DrawString((BasicCamera.Position).ToString(), new Vector2(20, 30));
+      //DrawString((_map.cameraOriginBlock).ToString(), new Vector2(20, 40));
+      //DrawString((_map.cameraBlockWidth).ToString(), new Vector2(20, 50));
+      //DrawString((_map.cameraBlockHeight).ToString(), new Vector2(20, 60));
+      //DrawString((_map.TilesDrawn).ToString(), new Vector2(20, 70));
+      //DrawString((_map.TileData.GetUpperBound(0)).ToString(), new Vector2(20, 80));
+      //DrawString((_map.TileData.GetUpperBound(1)).ToString(), new Vector2(20, 90));
+      //DrawString(BasicCamera.Clamp.ToString(), new Vector2(20, 100));
 
       _spriteBatch.End();
 
       base.Draw(gameTime);
+    }
+
+    public void DrawPlayer()
+    {
+      _spriteBatch.Draw(_spriteSheet, BasicPlayer.Position, BasicPlayer.spriteLocation, Color.White);
     }
 
     public void DrawString(string text, Vector2 position)
@@ -235,7 +310,7 @@ namespace Movement
         for (int j = 0; j < tileData.GetUpperBound(1); j++)
         {
 
-          if (rand.Next() % 2 != 0)
+          if (rand.Next() % 133 != 0)
           {
             //tiles[i] = 0;
             tileData[i, j] = new Tile { IsVisable = false, SpriteTile = 0 };
