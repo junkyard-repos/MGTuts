@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin 2d/FoxHeadWithShadow.png
+#begin ../../Assets/2d/FoxHeadWithShadow.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,15 +23,21 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:2d/FoxHeadWithShadow.png
+/build:../../Assets/2d/FoxHeadWithShadow.png;2d/FoxHeadWithShadow.png
 
-#begin Audio/rain.ogg
+#begin ../../Assets/Audio/rain.ogg
 /importer:OggImporter
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Audio/rain.ogg
+/build:../../Assets/Audio/rain.ogg;Audio/rain.ogg
 
-#begin Riemer/background.jpg
+#begin ../../Assets/Fonts/Fairfax.ttf
+/copy:../../Assets/Fonts/Fairfax.ttf;Fonts/Fairfax.ttf
+
+#begin ../../Assets/Fonts/Magdalena.ttf
+/copy:../../Assets/Fonts/Magdalena.ttf;Fonts/Magdalena.ttf
+
+#begin ../../Assets/Minivania/s4m_ur4i_minivania_lava.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -41,9 +47,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Riemer/background.jpg
+/build:../../Assets/Minivania/s4m_ur4i_minivania_lava.png;Minivania/s4m_ur4i_minivania_lava.png
 
-#begin Riemer/cannon.png
+#begin ../../Assets/Minivania/s4m_ur4i_minivania_tilemap.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -53,9 +59,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Riemer/cannon.png
+/build:../../Assets/Minivania/s4m_ur4i_minivania_tilemap.png;Minivania/s4m_ur4i_minivania_tilemap.png
 
-#begin Riemer/carriage.png
+#begin ../../Assets/Minivania/s4m_ur4i_minivania_tilemap_aqua.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -65,9 +71,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Riemer/carriage.png
+/build:../../Assets/Minivania/s4m_ur4i_minivania_tilemap_aqua.png;Minivania/s4m_ur4i_minivania_tilemap_aqua.png
 
-#begin Riemer/explosion.png
+#begin ../../Assets/Minivania/s4m_ur4i_miniventures_lava.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -77,9 +83,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Riemer/explosion.png
+/build:../../Assets/Minivania/s4m_ur4i_miniventures_lava.png;Minivania/s4m_ur4i_miniventures_lava.png
 
-#begin Riemer/foreground.png
+#begin ../../Assets/Minivania/s4m_ur4i_miniventures_tilemap.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -89,9 +95,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Riemer/foreground.png
+/build:../../Assets/Minivania/s4m_ur4i_miniventures_tilemap.png;Minivania/s4m_ur4i_miniventures_tilemap.png
 
-#begin Riemer/ground.jpg
+#begin ../../Assets/Minivania/s4m_ur4i_miniventures_tilemap_aqua.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -101,34 +107,106 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Riemer/ground.jpg
+/build:../../Assets/Minivania/s4m_ur4i_miniventures_tilemap_aqua.png;Minivania/s4m_ur4i_miniventures_tilemap_aqua.png
 
-#begin Riemer/hitcannon.wav
+#begin ../../Assets/Riemer/background.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/Riemer/background.jpg;Riemer/background.jpg
+
+#begin ../../Assets/Riemer/cannon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/Riemer/cannon.png;Riemer/cannon.png
+
+#begin ../../Assets/Riemer/carriage.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/Riemer/carriage.png;Riemer/carriage.png
+
+#begin ../../Assets/Riemer/explosion.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/Riemer/explosion.png;Riemer/explosion.png
+
+#begin ../../Assets/Riemer/foreground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/Riemer/foreground.png;Riemer/foreground.png
+
+#begin ../../Assets/Riemer/ground.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/Riemer/ground.jpg;Riemer/ground.jpg
+
+#begin ../../Assets/Riemer/hitcannon.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Riemer/hitcannon.wav
+/build:../../Assets/Riemer/hitcannon.wav;Riemer/hitcannon.wav
 
-#begin Riemer/hitterrain.wav
+#begin ../../Assets/Riemer/hitterrain.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Riemer/hitterrain.wav
+/build:../../Assets/Riemer/hitterrain.wav;Riemer/hitterrain.wav
 
-#begin Riemer/launch.wav
+#begin ../../Assets/Riemer/launch.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Riemer/launch.wav
+/build:../../Assets/Riemer/launch.wav;Riemer/launch.wav
 
-#begin Riemer/myFont.spritefont
+#begin ../../Assets/Riemer/myFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:Riemer/myFont.spritefont
+/build:../../Assets/Riemer/myFont.spritefont;Riemer/myFont.spritefont
 
-#begin Riemer/rocket.png
+#begin ../../Assets/Riemer/rocket.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -138,9 +216,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Riemer/rocket.png
+/build:../../Assets/Riemer/rocket.png;Riemer/rocket.png
 
-#begin Riemer/smoke.png
+#begin ../../Assets/Riemer/smoke.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -150,5 +228,1292 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Riemer/smoke.png
+/build:../../Assets/Riemer/smoke.png;Riemer/smoke.png
+
+#begin ../../Assets/rogue noir/animations/gif/biome_tile_001.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/biome_tile_001.gif;rogue noir/animations/gif/biome_tile_001.gif
+
+#begin ../../Assets/rogue noir/animations/gif/biome_tile_002.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/biome_tile_002.gif;rogue noir/animations/gif/biome_tile_002.gif
+
+#begin ../../Assets/rogue noir/animations/gif/biome_tile_003.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/biome_tile_003.gif;rogue noir/animations/gif/biome_tile_003.gif
+
+#begin ../../Assets/rogue noir/animations/gif/biome_tile_004.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/biome_tile_004.gif;rogue noir/animations/gif/biome_tile_004.gif
+
+#begin ../../Assets/rogue noir/animations/gif/biome_tile_005.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/biome_tile_005.gif;rogue noir/animations/gif/biome_tile_005.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_brain_attack.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_brain_attack.gif;rogue noir/animations/gif/enemy_brain_attack.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_brain_die.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_brain_die.gif;rogue noir/animations/gif/enemy_brain_die.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_brain_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_brain_idle.gif;rogue noir/animations/gif/enemy_brain_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_darklord_attack.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_darklord_attack.gif;rogue noir/animations/gif/enemy_darklord_attack.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_darklord_die.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_darklord_die.gif;rogue noir/animations/gif/enemy_darklord_die.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_darklord_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_darklord_idle.gif;rogue noir/animations/gif/enemy_darklord_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_darklord_walk.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_darklord_walk.gif;rogue noir/animations/gif/enemy_darklord_walk.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_sneaker_attack.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_sneaker_attack.gif;rogue noir/animations/gif/enemy_sneaker_attack.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_sneaker_die.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_sneaker_die.gif;rogue noir/animations/gif/enemy_sneaker_die.gif
+
+#begin ../../Assets/rogue noir/animations/gif/enemy_sneaker_walk.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/enemy_sneaker_walk.gif;rogue noir/animations/gif/enemy_sneaker_walk.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_001.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_001.gif;rogue noir/animations/gif/fx_001.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_002.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_002.gif;rogue noir/animations/gif/fx_002.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_003.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_003.gif;rogue noir/animations/gif/fx_003.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_003_event.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_003_event.gif;rogue noir/animations/gif/fx_003_event.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_003_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_003_idle.gif;rogue noir/animations/gif/fx_003_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_004.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_004.gif;rogue noir/animations/gif/fx_004.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_004_die.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_004_die.gif;rogue noir/animations/gif/fx_004_die.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_004_event.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_004_event.gif;rogue noir/animations/gif/fx_004_event.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_004_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_004_idle.gif;rogue noir/animations/gif/fx_004_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/fx_005.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/fx_005.gif;rogue noir/animations/gif/fx_005.gif
+
+#begin ../../Assets/rogue noir/animations/gif/gear.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/gear.gif;rogue noir/animations/gif/gear.gif
+
+#begin ../../Assets/rogue noir/animations/gif/leaves_single.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/leaves_single.gif;rogue noir/animations/gif/leaves_single.gif
+
+#begin ../../Assets/rogue noir/animations/gif/npc_001_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/npc_001_idle.gif;rogue noir/animations/gif/npc_001_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/npc_001_pointing.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/npc_001_pointing.gif;rogue noir/animations/gif/npc_001_pointing.gif
+
+#begin ../../Assets/rogue noir/animations/gif/npc_001_pointing-stay.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/npc_001_pointing-stay.gif;rogue noir/animations/gif/npc_001_pointing-stay.gif
+
+#begin ../../Assets/rogue noir/animations/gif/npc_001_talk.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/npc_001_talk.gif;rogue noir/animations/gif/npc_001_talk.gif
+
+#begin ../../Assets/rogue noir/animations/gif/npc_002_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/npc_002_idle.gif;rogue noir/animations/gif/npc_002_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/npc_002_pointing.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/npc_002_pointing.gif;rogue noir/animations/gif/npc_002_pointing.gif
+
+#begin ../../Assets/rogue noir/animations/gif/npc_002_pointing-stay.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/npc_002_pointing-stay.gif;rogue noir/animations/gif/npc_002_pointing-stay.gif
+
+#begin ../../Assets/rogue noir/animations/gif/npc_002_talk.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/npc_002_talk.gif;rogue noir/animations/gif/npc_002_talk.gif
+
+#begin ../../Assets/rogue noir/animations/gif/player_attack.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/player_attack.gif;rogue noir/animations/gif/player_attack.gif
+
+#begin ../../Assets/rogue noir/animations/gif/player_dash.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/player_dash.gif;rogue noir/animations/gif/player_dash.gif
+
+#begin ../../Assets/rogue noir/animations/gif/player_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/player_idle.gif;rogue noir/animations/gif/player_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/player_interact.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/player_interact.gif;rogue noir/animations/gif/player_interact.gif
+
+#begin ../../Assets/rogue noir/animations/gif/player_jump.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/player_jump.gif;rogue noir/animations/gif/player_jump.gif
+
+#begin ../../Assets/rogue noir/animations/gif/player_jump_midair.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/player_jump_midair.gif;rogue noir/animations/gif/player_jump_midair.gif
+
+#begin ../../Assets/rogue noir/animations/gif/player_run.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/player_run.gif;rogue noir/animations/gif/player_run.gif
+
+#begin ../../Assets/rogue noir/animations/gif/player_shoot.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/player_shoot.gif;rogue noir/animations/gif/player_shoot.gif
+
+#begin ../../Assets/rogue noir/animations/gif/skullplatform_activate.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/skullplatform_activate.gif;rogue noir/animations/gif/skullplatform_activate.gif
+
+#begin ../../Assets/rogue noir/animations/gif/skullplatform_doommachine_activate.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/skullplatform_doommachine_activate.gif;rogue noir/animations/gif/skullplatform_doommachine_activate.gif
+
+#begin ../../Assets/rogue noir/animations/gif/skullplatform_doommachine_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/skullplatform_doommachine_idle.gif;rogue noir/animations/gif/skullplatform_doommachine_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/skullplatform_forsaken.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/skullplatform_forsaken.gif;rogue noir/animations/gif/skullplatform_forsaken.gif
+
+#begin ../../Assets/rogue noir/animations/gif/skullplatform_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/skullplatform_idle.gif;rogue noir/animations/gif/skullplatform_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/tree_idle.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/tree_idle.gif;rogue noir/animations/gif/tree_idle.gif
+
+#begin ../../Assets/rogue noir/animations/gif/tree_leaves.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/gif/tree_leaves.gif;rogue noir/animations/gif/tree_leaves.gif
+
+#begin ../../Assets/rogue noir/animations/png/biome_tile_001.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/biome_tile_001.png;rogue noir/animations/png/biome_tile_001.png
+
+#begin ../../Assets/rogue noir/animations/png/biome_tile_002.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/biome_tile_002.png;rogue noir/animations/png/biome_tile_002.png
+
+#begin ../../Assets/rogue noir/animations/png/biome_tile_003.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/biome_tile_003.png;rogue noir/animations/png/biome_tile_003.png
+
+#begin ../../Assets/rogue noir/animations/png/biome_tile_004.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/biome_tile_004.png;rogue noir/animations/png/biome_tile_004.png
+
+#begin ../../Assets/rogue noir/animations/png/biome_tile_005.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/biome_tile_005.png;rogue noir/animations/png/biome_tile_005.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_brain_attack.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_brain_attack.png;rogue noir/animations/png/enemy_brain_attack.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_brain_die.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_brain_die.png;rogue noir/animations/png/enemy_brain_die.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_brain_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_brain_idle.png;rogue noir/animations/png/enemy_brain_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_darklord_attack.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_darklord_attack.png;rogue noir/animations/png/enemy_darklord_attack.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_darklord_die.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_darklord_die.png;rogue noir/animations/png/enemy_darklord_die.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_darklord_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_darklord_idle.png;rogue noir/animations/png/enemy_darklord_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_darklord_walk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_darklord_walk.png;rogue noir/animations/png/enemy_darklord_walk.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_sneaker_attack.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_sneaker_attack.png;rogue noir/animations/png/enemy_sneaker_attack.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_sneaker_die.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_sneaker_die.png;rogue noir/animations/png/enemy_sneaker_die.png
+
+#begin ../../Assets/rogue noir/animations/png/enemy_sneaker_walk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/enemy_sneaker_walk.png;rogue noir/animations/png/enemy_sneaker_walk.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_001.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_001.png;rogue noir/animations/png/fx_001.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_002.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_002.png;rogue noir/animations/png/fx_002.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_003.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_003.png;rogue noir/animations/png/fx_003.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_003_event.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_003_event.png;rogue noir/animations/png/fx_003_event.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_003_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_003_idle.png;rogue noir/animations/png/fx_003_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_004.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_004.png;rogue noir/animations/png/fx_004.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_004_die.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_004_die.png;rogue noir/animations/png/fx_004_die.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_004_event.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_004_event.png;rogue noir/animations/png/fx_004_event.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_004_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_004_idle.png;rogue noir/animations/png/fx_004_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/fx_005.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/fx_005.png;rogue noir/animations/png/fx_005.png
+
+#begin ../../Assets/rogue noir/animations/png/gear.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/gear.png;rogue noir/animations/png/gear.png
+
+#begin ../../Assets/rogue noir/animations/png/leaves_single.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/leaves_single.png;rogue noir/animations/png/leaves_single.png
+
+#begin ../../Assets/rogue noir/animations/png/npc_001_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/npc_001_idle.png;rogue noir/animations/png/npc_001_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/npc_001_pointing.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/npc_001_pointing.png;rogue noir/animations/png/npc_001_pointing.png
+
+#begin ../../Assets/rogue noir/animations/png/npc_001_pointing-stay.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/npc_001_pointing-stay.png;rogue noir/animations/png/npc_001_pointing-stay.png
+
+#begin ../../Assets/rogue noir/animations/png/npc_001_talk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/npc_001_talk.png;rogue noir/animations/png/npc_001_talk.png
+
+#begin ../../Assets/rogue noir/animations/png/npc_002_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/npc_002_idle.png;rogue noir/animations/png/npc_002_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/npc_002_pointing.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/npc_002_pointing.png;rogue noir/animations/png/npc_002_pointing.png
+
+#begin ../../Assets/rogue noir/animations/png/npc_002_pointing-stay.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/npc_002_pointing-stay.png;rogue noir/animations/png/npc_002_pointing-stay.png
+
+#begin ../../Assets/rogue noir/animations/png/npc_002_talk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/npc_002_talk.png;rogue noir/animations/png/npc_002_talk.png
+
+#begin ../../Assets/rogue noir/animations/png/player_attack.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/player_attack.png;rogue noir/animations/png/player_attack.png
+
+#begin ../../Assets/rogue noir/animations/png/player_dash.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/player_dash.png;rogue noir/animations/png/player_dash.png
+
+#begin ../../Assets/rogue noir/animations/png/player_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/player_idle.png;rogue noir/animations/png/player_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/player_interact.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/player_interact.png;rogue noir/animations/png/player_interact.png
+
+#begin ../../Assets/rogue noir/animations/png/player_jump.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/player_jump.png;rogue noir/animations/png/player_jump.png
+
+#begin ../../Assets/rogue noir/animations/png/player_jump_midair.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/player_jump_midair.png;rogue noir/animations/png/player_jump_midair.png
+
+#begin ../../Assets/rogue noir/animations/png/player_run.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/player_run.png;rogue noir/animations/png/player_run.png
+
+#begin ../../Assets/rogue noir/animations/png/player_shoot.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/player_shoot.png;rogue noir/animations/png/player_shoot.png
+
+#begin ../../Assets/rogue noir/animations/png/skullplatform_activate.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/skullplatform_activate.png;rogue noir/animations/png/skullplatform_activate.png
+
+#begin ../../Assets/rogue noir/animations/png/skullplatform_doommachine_activate.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/skullplatform_doommachine_activate.png;rogue noir/animations/png/skullplatform_doommachine_activate.png
+
+#begin ../../Assets/rogue noir/animations/png/skullplatform_doommachine_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/skullplatform_doommachine_idle.png;rogue noir/animations/png/skullplatform_doommachine_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/skullplatform_forsaken.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/skullplatform_forsaken.png;rogue noir/animations/png/skullplatform_forsaken.png
+
+#begin ../../Assets/rogue noir/animations/png/skullplatform_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/skullplatform_idle.png;rogue noir/animations/png/skullplatform_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/tree_idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/tree_idle.png;rogue noir/animations/png/tree_idle.png
+
+#begin ../../Assets/rogue noir/animations/png/tree_leaves.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/animations/png/tree_leaves.png;rogue noir/animations/png/tree_leaves.png
+
+#begin ../../Assets/rogue noir/backgrounds/s4m_ur4i_rogue-noir_clouds.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/backgrounds/s4m_ur4i_rogue-noir_clouds.png;rogue noir/backgrounds/s4m_ur4i_rogue-noir_clouds.png
+
+#begin ../../Assets/rogue noir/tiles/s4m_ur4i_rogue-noir.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/tiles/s4m_ur4i_rogue-noir.png;rogue noir/tiles/s4m_ur4i_rogue-noir.png
+
+#begin ../../Assets/rogue noir/tiles/s4m_ur4i_rogue-noir_1.1_made-of-flesh-and-metal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/tiles/s4m_ur4i_rogue-noir_1.1_made-of-flesh-and-metal.png;rogue noir/tiles/s4m_ur4i_rogue-noir_1.1_made-of-flesh-and-metal.png
+
+#begin ../../Assets/rogue noir/tiles/s4m_ur4i_rogue-noir_chars.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/tiles/s4m_ur4i_rogue-noir_chars.png;rogue noir/tiles/s4m_ur4i_rogue-noir_chars.png
+
+#begin ../../Assets/rogue noir/tiles/s4m_ur4i_rogue-noir_ui.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/rogue noir/tiles/s4m_ur4i_rogue-noir_ui.png;rogue noir/tiles/s4m_ur4i_rogue-noir_ui.png
+
+#begin ../../Assets/Series 1/effects.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:../../Assets/Series 1/effects.fx;Series 1/effects.fx
+
+#begin ../../Assets/Series 1/heightmap.bmp
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/Series 1/heightmap.bmp;Series 1/heightmap.bmp
+
+#begin ../../Assets/Series 1/XNA.raw
+/copy:../../Assets/Series 1/XNA.raw;Series 1/XNA.raw
+
+#begin ../../Assets/Shaders/Test.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:../../Assets/Shaders/Test.fx;Shaders/Test.fx
 

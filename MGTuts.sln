@@ -25,8 +25,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movement", "Movement\Moveme
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixelShaders", "PixelShaders\PixelShaders.csproj", "{0DEAE2C3-328E-407B-9A6A-D75A5D365804}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShaderTest", "ShaderTest\ShaderTest.vcxproj", "{C79B7276-4AC5-40FB-91DB-3D9525296436}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -169,16 +167,6 @@ Global
 		{0DEAE2C3-328E-407B-9A6A-D75A5D365804}.Release|x64.Build.0 = Release|Any CPU
 		{0DEAE2C3-328E-407B-9A6A-D75A5D365804}.Release|x86.ActiveCfg = Release|Any CPU
 		{0DEAE2C3-328E-407B-9A6A-D75A5D365804}.Release|x86.Build.0 = Release|Any CPU
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Debug|x64.ActiveCfg = Debug|x64
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Debug|x64.Build.0 = Debug|x64
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Debug|x86.ActiveCfg = Debug|Win32
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Debug|x86.Build.0 = Debug|Win32
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Release|Any CPU.ActiveCfg = Release|Win32
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Release|x64.ActiveCfg = Release|x64
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Release|x64.Build.0 = Release|x64
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Release|x86.ActiveCfg = Release|Win32
-		{C79B7276-4AC5-40FB-91DB-3D9525296436}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

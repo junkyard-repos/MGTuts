@@ -35,6 +35,12 @@ namespace PixelShaders
 
       _foxHead = Content.Load<Texture2D>("2d/FoxHeadWithShadow");
       _testEffect = Content.Load<Effect>("Shaders/Test");
+      //_testEffect.Parameters["xSize"].SetValue((float)_foxHead.Width);
+      //_testEffect.Parameters["ySize"].SetValue((float)_foxHead.Height);
+      //_testEffect.Parameters["xDraw"].SetValue((float)((int)_foxHead.Width));
+      //_testEffect.Parameters["yDraw"].SetValue((float)((int)_foxHead.Height));
+      _testEffect.Parameters["filterColor"].SetValue(Color.Red.ToVector4());
+      //_testEffect.CurrentTechnique.Passes[0].Apply();
     }
 
     protected override void Update(GameTime gameTime)
@@ -51,8 +57,19 @@ namespace PixelShaders
     {
       GraphicsDevice.Clear(Color.CornflowerBlue);
 
-      _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(4, 4, 1));
-      _spriteBatch.Draw(_foxHead, new Rectangle(15,15, 32,32), null, Color.White, 0, Vector2.Zero, new SpriteEffects(), 1);
+      _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(4, 4, 1));
+
+
+      _spriteBatch.Draw(_foxHead, new Rectangle(75, 15, 32, 32), null, Color.White, 0, Vector2.Zero, new SpriteEffects(), 1);
+
+      _testEffect.CurrentTechnique.Passes[0].Apply();
+
+
+      _spriteBatch.Draw(_foxHead, new Rectangle(15, 15, 32, 32), null, Color.White, 0, Vector2.Zero, new SpriteEffects(), 1);
+      _spriteBatch.End();
+
+      _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(4, 4, 1));
+      _spriteBatch.Draw(_foxHead, new Rectangle(60, 60, 32, 32), null, Color.White, 0, Vector2.Zero, new SpriteEffects(), 1);
       _spriteBatch.End();
 
       base.Draw(gameTime);
