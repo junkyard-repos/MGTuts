@@ -18,27 +18,42 @@ namespace Riemer
     private VertexPositionColor[] _tri1;
     private VertexPositionColor[] _tri2;
 
+    private Matrix _viewMatrix;
+    private Matrix _projectionMatrix;
+
     private Effect _testEffect;
     private Texture2D _foxHead;
+
+    private void UpdateTriPos(float x, float y)
+    {
+      _tri1[0].Position = new Vector3(_tri1[0].Position.X + x, _tri1[0].Position.Y + y, 0f);
+      _tri1[1].Position = new Vector3(_tri1[1].Position.X + x, _tri1[1].Position.Y + y, 0f);
+      _tri1[2].Position = new Vector3(_tri1[2].Position.X + x, _tri1[2].Position.Y + y, -5f);
+    }
+
+    private void UpdateCameraPos(float x, float y)
+    {
+      var t = _viewMatrix.Translation;
+      _viewMatrix = Matrix.CreateLookAt(new Vector3(t.X + x, t.Y + y, 50), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
+    }
 
     private void SetUpVertices()
     {
       _tri1 = new VertexPositionColor[3];
-      _tri2 = new VertexPositionColor[3];
 
-      _tri1[0].Position = new Vector3(-1f, -1f, 0f);
+      _tri1[0].Position = new Vector3(0f, 0f, 0f);
       _tri1[0].Color = Color.Red;
-      _tri1[1].Position = new Vector3(-1f, 1f, 0f);
-      _tri1[1].Color = Color.Green;
-      _tri1[2].Position = new Vector3(1f, 1f, 0f);
-      _tri1[2].Color = Color.Yellow;
+      _tri1[1].Position = new Vector3(10f, 10f, 0f);
+      _tri1[1].Color = Color.Yellow;
+      _tri1[2].Position = new Vector3(10f, 0f, -5f);
+      _tri1[2].Color = Color.Green;
+    }
 
-      _tri2[0].Position = new Vector3(-1f, -1f, 0f);
-      _tri2[0].Color = Color.Blue;
-      _tri2[1].Position = new Vector3(1f, 1f, 0f);
-      _tri2[1].Color = Color.Pink;
-      _tri2[2].Position = new Vector3(1f, -1f, 0f);
-      _tri2[2].Color = Color.GreenYellow;
+    private void SetUpCamera()
+    {
+      _viewMatrix = Matrix.CreateLookAt(new Vector3(0, 0, 50), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
+      //_viewMatrix = Matrix.CreateLookAt(new Vector3(0, 0, -50), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
+      _projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, _device.Viewport.AspectRatio, 1.0f, 300.0f);
     }
 
     public Game2()
@@ -58,6 +73,8 @@ namespace Riemer
 
       SetUpVertices();
 
+
+
       base.Initialize();
     }
 
@@ -68,6 +85,12 @@ namespace Riemer
       _effect = Content.Load<Effect>("Series 1/effects");
       _testEffect = Content.Load<Effect>("Shaders/Test");
       _foxHead = Content.Load<Texture2D>("2d/FoxHeadWithShadow");
+
+      RasterizerState rs = new RasterizerState();
+      rs.CullMode = CullMode.None;
+      _device.RasterizerState = rs;
+
+      SetUpCamera();
     }
 
     protected override void Update(GameTime gameTime)
@@ -77,18 +100,55 @@ namespace Riemer
       {
         Exit();
       }
+
+      float x = 0;
+      float y = 0;
+
+      if (Keyboard.GetState().IsKeyDown(Keys.W))
+      {
+        y += 1;
+      }
+
+      if (Keyboard.GetState().IsKeyDown(Keys.S))
+      {
+        y -= 1;
+      }
+
+      if (Keyboard.GetState().IsKeyDown(Keys.A))
+      {
+        x -= 1;
+      }
+
+      if (Keyboard.GetState().IsKeyDown(Keys.D))
+      {
+        x += 1;
+      }
+
+      //UpdateTriPos(x, y);
+      //UpdateCameraPos(x, y);
+
+
+
       base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
+
+
       GraphicsDevice.Clear(Color.DarkSlateBlue);
+
 
       _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(3, 3, 1));
       _spriteBatch.Draw(_foxHead, new Rectangle(15, 15, 32, 32), null, Color.White, 0, Vector2.Zero, new SpriteEffects(), 1);
       _spriteBatch.End();
 
-      _effect.CurrentTechnique = _effect.Techniques["Pretransformed"];
+      //_effect.CurrentTechnique = _effect.Techniques["Pretransformed"];
+      _effect.CurrentTechnique = _effect.Techniques["ColoredNoShading"];
+
+      _effect.Parameters["xView"].SetValue(_viewMatrix);
+      _effect.Parameters["xProjection"].SetValue(_projectionMatrix);
+      _effect.Parameters["xWorld"].SetValue(Matrix.Identity);
 
       foreach (EffectPass pass in _effect.CurrentTechnique.Passes)
       {
@@ -96,7 +156,7 @@ namespace Riemer
       }
 
       _device.DrawUserPrimitives(PrimitiveType.TriangleList, _tri1, 0, 1, VertexPositionColor.VertexDeclaration);
-      _device.DrawUserPrimitives(PrimitiveType.TriangleList, _tri2, 0, 1, VertexPositionColor.VertexDeclaration);
+      //_device.DrawUserPrimitives(PrimitiveType.TriangleList, _tri2, 0, 1, VertexPositionColor.VertexDeclaration);
 
       _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(3, 3, 1));
       _spriteBatch.Draw(_foxHead, new Rectangle(15, 15, 32, 32), null, Color.White, 0, Vector2.Zero, new SpriteEffects(), 1);
