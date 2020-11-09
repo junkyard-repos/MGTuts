@@ -8,21 +8,39 @@ using System.Text;
 
 namespace Riemer
 {
-  class Game2 : Game
+  internal class Game2 : Game
   {
     private GraphicsDeviceManager _graphics;
     private GraphicsDevice _device;
     private SpriteBatch _spriteBatch;
 
+    private GameWindow gameWindow;
+    private SwapChainRenderTarget target;
+
     private Effect _effect;
     private VertexPositionColor[] _tri1;
     private VertexPositionColor[] _tri2;
+
+    private float _angle = 0f;
 
     private Matrix _viewMatrix;
     private Matrix _projectionMatrix;
 
     private Effect _testEffect;
     private Texture2D _foxHead;
+
+    [Test("Hi there!")]
+    private void CreateGameWindow()
+    {
+      gameWindow = GameWindow.Create(this, 300, 300);
+      gameWindow.Position = (Vector2.One * 300).ToPoint();
+      target = new SwapChainRenderTarget(GraphicsDevice, gameWindow.Handle, 300, 300);
+
+      var f = System.Windows.Forms.Control.FromHandle(gameWindow.Handle).FindForm();
+      f.Show();
+
+      target.Present();
+    }
 
     private void UpdateTriPos(float x, float y)
     {
@@ -59,6 +77,7 @@ namespace Riemer
     public Game2()
     {
       _graphics = new GraphicsDeviceManager(this);
+
       Content.RootDirectory = "Content";
 
       IsMouseVisible = true;
@@ -72,8 +91,6 @@ namespace Riemer
       _graphics.ApplyChanges();
 
       SetUpVertices();
-
-
 
       base.Initialize();
     }
@@ -91,6 +108,8 @@ namespace Riemer
       _device.RasterizerState = rs;
 
       SetUpCamera();
+
+      CreateGameWindow();
     }
 
     protected override void Update(GameTime gameTime)
@@ -108,47 +127,48 @@ namespace Riemer
       {
         y += 1;
       }
-
       if (Keyboard.GetState().IsKeyDown(Keys.S))
       {
         y -= 1;
       }
-
       if (Keyboard.GetState().IsKeyDown(Keys.A))
       {
         x -= 1;
       }
-
       if (Keyboard.GetState().IsKeyDown(Keys.D))
       {
         x += 1;
       }
 
+      _angle += 0.005f;
+
       //UpdateTriPos(x, y);
       //UpdateCameraPos(x, y);
-
-
 
       base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
-
-
+      GraphicsDevice.SetRenderTarget(target);
       GraphicsDevice.Clear(Color.DarkSlateBlue);
-
+      //GraphicsDevice.Present();
 
       _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(3, 3, 1));
       _spriteBatch.Draw(_foxHead, new Rectangle(15, 15, 32, 32), null, Color.White, 0, Vector2.Zero, new SpriteEffects(), 1);
       _spriteBatch.End();
+
+      GraphicsDevice.SetRenderTarget(null);
 
       //_effect.CurrentTechnique = _effect.Techniques["Pretransformed"];
       _effect.CurrentTechnique = _effect.Techniques["ColoredNoShading"];
 
       _effect.Parameters["xView"].SetValue(_viewMatrix);
       _effect.Parameters["xProjection"].SetValue(_projectionMatrix);
-      _effect.Parameters["xWorld"].SetValue(Matrix.Identity);
+      //_effect.Parameters["xWorld"].SetValue(Matrix.Identity);
+      //Matrix worldMatrix = Matrix.CreateRotationY(3 * _angle);
+      Matrix worldMatrix = Matrix.CreateTranslation(-20.0f / 3.0f, -10.0f / 3.0f, 0) * Matrix.CreateRotationZ(_angle);
+      _effect.Parameters["xWorld"].SetValue(worldMatrix);
 
       foreach (EffectPass pass in _effect.CurrentTechnique.Passes)
       {
@@ -167,6 +187,8 @@ namespace Riemer
       _testEffect.CurrentTechnique.Passes[0].Apply();
       _spriteBatch.Draw(_foxHead, new Rectangle(75, 15, 32, 32), null, Color.White, 0, Vector2.Zero, new SpriteEffects(), 1);
       _spriteBatch.End();
+
+      target.Present();
 
       base.Draw(gameTime);
     }
